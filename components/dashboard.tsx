@@ -263,7 +263,7 @@ export default function Dashboard() {
                         poster="/placeholder.svg?height=400&width=800"
                       >
                         <source
-                          src="https://drive.google.com/uc?export=preview&id=1tIU9KWg4VD02pD368vBuqT_Tcf6-u28S"
+                          src="C:\Users\DELL\Downloads\EcoTrack Visualizing Carbon Footprints.mp4"
                           type="video/mp4"
                         />
                         Your browser does not support the video tag.
