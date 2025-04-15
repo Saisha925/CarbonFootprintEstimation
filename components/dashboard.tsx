@@ -260,7 +260,6 @@ export default function Dashboard() {
                       <video
                         className="w-full h-full object-cover"
                         controls
-                        poster="/placeholder.svg?height=400&width=800"
                       >
                         <source
                           src="public/vecteezy_ai-generated-earth-globe-illustration-animation-horizontal_42643019.mp4"
