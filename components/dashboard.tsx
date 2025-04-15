@@ -262,7 +262,7 @@ export default function Dashboard() {
                         controls
                       >
                         <source
-                          src="/vecteezy_ai-generated-earth-globe-illustration-animation-horizontal_42643019.mp4"
+                          src="/EcoTrack Visualizing Carbon Footprints (1).mp4"
                           type="video/mp4"
                         />
                         Your browser does not support the video tag.
