@@ -168,7 +168,7 @@ export default function Dashboard() {
         <Sidebar className="border-r border-[#1e293b]">
           <SidebarHeader className="px-4 py-2">
             <div className="flex items-center space-x-2">
-              <Leaf className="h-6 w-6 text-[#4ade80]" />
+              <Leaf className="h-8 w-4 text-[#4ade80]" />
             </div>
           </SidebarHeader>
 
@@ -180,7 +180,7 @@ export default function Dashboard() {
                   isActive={activeTab === "dashboard"}
                   onClick={() => setActiveTab("dashboard")}
                 >
-                  <Home className="mr-2" />
+                  <Home className="mr-2 text-lg" />
                   <span>Dashboard</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
