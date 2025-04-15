@@ -249,25 +249,33 @@ export default function Dashboard() {
             <div className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <Card className="bg-[#111827] text-white border-[#1e293b] col-span-2">
-                  <CardHeader>
-                    <CardTitle>Welcome to EcoTrack</CardTitle>
-                    <CardDescription className="text-gray-400">
-                      Your AI-powered carbon emission calculator
-                    </CardDescription>
-                  </CardHeader>
                   <CardContent>
-                    <div className="aspect-video rounded-md overflow-hidden">
-                      <video
+                    <div className="relative aspect-video rounded-md overflow-hidden">
+                        <video
                         className="w-full h-full object-cover"
-                        controls
-                      >
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        >
                         <source
-                          src="/EcoTrack Visualizing Carbon Footprints (1).mp4"
+                          src="/vecteezy_ai-generated-earth-globe-illustration-animation-horizontal_42643019.mp4"
                           type="video/mp4"
                         />
                         Your browser does not support the video tag.
-                      </video>
-                    </div>
+                        </video>
+
+
+                  <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center text-center px-4">
+                  <h1 className="text-white text-3xl md:text-5xl font-bold drop-shadow-lg">
+                    Welcome to EcoTrack
+                  </h1>
+                  <p className="text-white text-lg md:text-2xl mt-2 drop-shadow-md">
+                    Your AI-powered carbon emission calculator
+                  </p>
+                 </div>
+              </div>
+
                     <div className="mt-4 space-y-4">
                       <p className="text-gray-300">
                         EcoTrack helps businesses calculate, track, and reduce their carbon emissions with AI-powered
