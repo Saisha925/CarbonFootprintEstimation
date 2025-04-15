@@ -180,8 +180,8 @@ export default function Dashboard() {
                   isActive={activeTab === "dashboard"}
                   onClick={() => setActiveTab("dashboard")}
                 >
-                  <Home className="mr-2 text-xl" />
-                  <span>Dashboard</span>
+                  <Home className="mr-2 w-6 h-6" />
+                  <span className="text-lg">Dashboard</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
@@ -190,8 +190,8 @@ export default function Dashboard() {
                   isActive={activeTab === "calculator"}
                   onClick={() => setActiveTab("calculator")}
                 >
-                  <Settings className="mr-2 text-xl" />
-                  <span>Calculator</span>
+                  <Settings className="mr-2 w-6 h-6" />
+                  <span className="text-lg">Calculator</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
@@ -200,8 +200,8 @@ export default function Dashboard() {
                   isActive={activeTab === "results"}
                   onClick={() => (hasCalculated ? setActiveTab("results") : setActiveTab("calculator"))}
                 >
-                  <BarChart2 className="mr-2 text-xl" />
-                  <span>Results</span>
+                  <BarChart2 className="mr-2 w-6 h-6" />
+                  <span className="text-lg">Results</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
@@ -210,14 +210,14 @@ export default function Dashboard() {
                   isActive={activeTab === "reports"}
                   onClick={() => setActiveTab("reports")}
                 >
-                  <FileText className="mr-2 text-xl" />
-                  <span>Reports</span>
+                  <FileText className="mr-2 w-6 h-6" />
+                  <span className="text-lg">Reports</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton tooltip="Help" isActive={activeTab === "help"} onClick={() => setActiveTab("help")}>
-                  <HelpCircle className="mr-2 text-xl" />
-                  <span>Help</span>
+                  <HelpCircle className="mr-2 w-6 h-6" />
+                  <span className="text-lg">Help</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
