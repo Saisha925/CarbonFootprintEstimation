@@ -168,7 +168,7 @@ export default function Dashboard() {
         <Sidebar className="border-r border-[#1e293b]">
           <SidebarHeader className="px-4 py-2">
             <div className="flex items-center space-x-2">
-              <Leaf className="h-8 w-4 text-[#4ade80]" />
+              <Leaf className="h-10 w-10 text-[#4ade80]" />
             </div>
           </SidebarHeader>
 
@@ -180,7 +180,7 @@ export default function Dashboard() {
                   isActive={activeTab === "dashboard"}
                   onClick={() => setActiveTab("dashboard")}
                 >
-                  <Home className="mr-2 text-lg" />
+                  <Home className="mr-2 text-xl" />
                   <span>Dashboard</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -190,7 +190,7 @@ export default function Dashboard() {
                   isActive={activeTab === "calculator"}
                   onClick={() => setActiveTab("calculator")}
                 >
-                  <Settings className="mr-2" />
+                  <Settings className="mr-2 text-xl" />
                   <span>Calculator</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -200,7 +200,7 @@ export default function Dashboard() {
                   isActive={activeTab === "results"}
                   onClick={() => (hasCalculated ? setActiveTab("results") : setActiveTab("calculator"))}
                 >
-                  <BarChart2 className="mr-2" />
+                  <BarChart2 className="mr-2 text-xl" />
                   <span>Results</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -210,13 +210,13 @@ export default function Dashboard() {
                   isActive={activeTab === "reports"}
                   onClick={() => setActiveTab("reports")}
                 >
-                  <FileText className="mr-2" />
+                  <FileText className="mr-2 text-xl" />
                   <span>Reports</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton tooltip="Help" isActive={activeTab === "help"} onClick={() => setActiveTab("help")}>
-                  <HelpCircle className="mr-2" />
+                  <HelpCircle className="mr-2 text-xl" />
                   <span>Help</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
