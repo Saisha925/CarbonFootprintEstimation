@@ -7,9 +7,9 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "EcoMetrics - CO₂ Emission Calculator",
-  description: "AI-powered carbon emission analytics dashboard for businesses",
-    generator: 'v0.dev'
+  title: "EcoTrack - Carbon Footprint Calculator",
+  description: "ML-powered carbon emission analytics dashboard for businesses",
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark bg-[#09090b]">
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           {children}
@@ -27,6 +27,3 @@ export default function RootLayout({
     </html>
   )
 }
-
-
-import './globals.css'
