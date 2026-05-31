@@ -22,7 +22,14 @@ import {
   HelpCircle,
   LogOut,
   Loader2,
+  Play,
+  Pause,
+  Volume2,
+  VolumeX,
+  Maximize2,
+  Film,
 } from "lucide-react"
+import { useRef } from "react"
 import { cn } from "@/lib/utils"
 
 interface PredictionResult {
@@ -50,6 +57,37 @@ export default function Dashboard() {
   const [result, setResult] = useState<PredictionResult | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+
+  // Video state
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [isMuted, setIsMuted] = useState(true)
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause()
+      } else {
+        videoRef.current.play()
+      }
+      setIsPlaying(!isPlaying)
+    }
+  }
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted
+      setIsMuted(!isMuted)
+    }
+  }
+
+  const toggleFullscreen = () => {
+    if (videoRef.current) {
+      if (videoRef.current.requestFullscreen) {
+        videoRef.current.requestFullscreen()
+      }
+    }
+  }
 
   const handleCalculate = async () => {
     setLoading(true)
@@ -246,6 +284,89 @@ export default function Dashboard() {
                   </CardContent>
                 </Card>
               </div>
+
+              {/* Video Showcase Section */}
+              <Card className="bg-[#18181b] border-[#27272a] overflow-hidden">
+                <CardHeader className="pb-2">
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="text-white flex items-center gap-2">
+                      <Film className="w-5 h-5 text-emerald-500" />
+                      Understanding Carbon Footprints
+                    </CardTitle>
+                    <span className="text-xs text-[#71717a] bg-[#27272a] px-2 py-1 rounded-md">Interactive Demo</span>
+                  </div>
+                </CardHeader>
+                <CardContent className="p-0">
+                  <div className="relative group">
+                    {/* Video Element */}
+                    <video
+                      ref={videoRef}
+                      className="w-full aspect-video object-cover"
+                      poster="/EcoTrack Visualizing Carbon Footprints (1).mp4#t=0.1"
+                      muted={isMuted}
+                      loop
+                      playsInline
+                      onPlay={() => setIsPlaying(true)}
+                      onPause={() => setIsPlaying(false)}
+                    >
+                      <source src="/EcoTrack Visualizing Carbon Footprints (1).mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+
+                    {/* Play Button Overlay */}
+                    {!isPlaying && (
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+                        <button
+                          onClick={togglePlay}
+                          className="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-200"
+                        >
+                          <Play className="w-8 h-8 text-white ml-1" />
+                        </button>
+                      </div>
+                    )}
+
+                    {/* Video Controls Overlay */}
+                    <div className={cn(
+                      "absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent transition-opacity duration-200",
+                      isPlaying ? "opacity-0 group-hover:opacity-100" : "opacity-100"
+                    )}>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <button
+                            onClick={togglePlay}
+                            className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+                          >
+                            {isPlaying ? (
+                              <Pause className="w-5 h-5 text-white" />
+                            ) : (
+                              <Play className="w-5 h-5 text-white ml-0.5" />
+                            )}
+                          </button>
+                          <button
+                            onClick={toggleMute}
+                            className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+                          >
+                            {isMuted ? (
+                              <VolumeX className="w-5 h-5 text-white" />
+                            ) : (
+                              <Volume2 className="w-5 h-5 text-white" />
+                            )}
+                          </button>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <span className="text-sm text-white/80">EcoTrack: Visualizing Carbon Footprints</span>
+                          <button
+                            onClick={toggleFullscreen}
+                            className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+                          >
+                            <Maximize2 className="w-5 h-5 text-white" />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
 
               {/* Main Content Grid */}
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
